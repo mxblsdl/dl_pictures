@@ -46,7 +46,7 @@ pi_files = [p.strip("\n") for p in pi_files]
 # Get a list of the existing pictures that have already been downloaded. We don't want to waste time downloading files that have already been downloaded.
 
 # +
-existing_files = os.listdir('pi_pics/')
+existing_files = os.listdir('../pi_pics/')
 
 new_files = list(set(pi_files) - set(existing_files))
 # -
@@ -58,7 +58,7 @@ ftp_client = ssh_client.open_sftp()
 
 for file in new_files:
     remotepath = str("/home/pi/pictures/" + file)
-    localpath = str("pi_pics/" + file)
+    localpath = str("../pi_pics/" + file)
 
     ftp_client.get(remotepath, localpath)
 

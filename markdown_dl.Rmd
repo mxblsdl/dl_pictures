@@ -1,0 +1,23 @@
+---
+title: "python test"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(reticulate)
+
+import("os")
+```
+
+```{python}
+import os
+
+# set 
+root_dir = "../pi_pics/"
+
+# find all files
+existing_files = os.listdir(root_dir)
+
+print(existing_files)
+```
+

@@ -2,6 +2,9 @@ from PIL import Image
 import os
 
 # set 
+dir = os.path.dirname(__file__)
+os.chdir(dir)
+
 root_dir = "../pi_pics/"
 
 # find all files
@@ -14,6 +17,6 @@ ef = [x for x in existing_files if x.endswith(".jpg")]
 # This scrubs the metadata from each image
 for e in ef:
     img = Image.open(root_dir + e)
-    img.save(root_dir + "clean/cl" + ef)
+    img.save(root_dir + "clean/cl" + e)
 
 

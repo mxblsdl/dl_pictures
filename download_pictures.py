@@ -22,8 +22,11 @@ import paramiko
 import os
 import pandas as pd
 
-# +
 # read in file containing host information
+# Set the directory
+dir = os.path.dirname(__file__)
+os.chdir(dir)
+
 d = pd.read_csv("server_info.csv")
 
 d = dict(zip(list(d.iloc[:, 0]), list(d.iloc[:, 1])))

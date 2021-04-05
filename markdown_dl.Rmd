@@ -1,23 +1,57 @@
 ---
-title: "python test"
-output: html_document
+author: "Max Blasdel"
+title: "Python Functions"
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
 ---
+<style>
+.Python:hover{
+  background-color:#dedfe0;
+}
+</style>
 
-```{r setup, include=FALSE}
+# Using Reticulate
+
+Simple example of a report that could be made with R markdown, calling Python functions then adding some silliness with JavaScript.
+
+Load the necessary R libraries and tell the document which python interpreter it should be using. Notice the commented out `py_install` calls which only need to be run once.
+
+```{r setup, include=T}
 library(reticulate)
+library(tictoc)
 
-import("os")
+use_python("../python/bin/python3")
+
+# py_install("paramiko", pip = T)
+# py_install("pandas")
+# py_install("Pillow", pip = T)
 ```
 
-```{python}
-import os
+Source the python functions as if they were R files. These function don't return anything, just run a couple of python scripts to download files and clean data.
 
-# set 
-root_dir = "../pi_pics/"
+I time the operation so that I can output this value in the report.
+<img id="py" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" style="display:none;">
+```{r, class.source="Python"}
+tic()
+source_python("download_pictures.py")
+source_python("clean_metadata.py")
+toc(log = T)
+```
 
-# find all files
-existing_files = os.listdir(root_dir)
+The above operation ran in `r tic.log()`
 
-print(existing_files)
+Below shows some of the versatility of R markdown and the ability to run different languages through R as shown above or independently with separate code chunks.
+
+```{js}
+var elements = document.getElementsByClassName("Python");
+
+for (var i = 0; i < elements.length; i++) {
+    elements[i].addEventListener('click', function() {
+    document.getElementById("py").style.display="block"
+    }, false);
+}
 ```
 

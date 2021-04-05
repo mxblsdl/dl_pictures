@@ -24,8 +24,8 @@ import pandas as pd
 
 # read in file containing host information
 # Set the directory
-dir = os.path.dirname(__file__)
-os.chdir(dir)
+# dir = os.path.dirname(__file__)
+# os.chdir(dir)
 
 d = pd.read_csv("server_info.csv")
 

@@ -2,21 +2,25 @@ from PIL import Image
 import os
 
 # set 
-dir = os.path.dirname(__file__)
-os.chdir(dir)
+# dir = os.path.dirname(__file__)
+# os.chdir(dir)
 
 root_dir = "../pi_pics/"
 
-# find all files
-existing_files = os.listdir(root_dir)
+# # find all files
+new_files = os.listdir(root_dir)
 
 # remove any file that does not end with .jpg
-ef = [x for x in existing_files if x.endswith(".jpg")]
+nf = [x for x in new_files if x.endswith(".jpg")]
+
+# remove existing files that have already been cleaned
+existing_files = os.listdir(root_dir + "clean/")
+ef = [x.strip("cl") for x in existing_files]
+
+nf = list(set(nf) - set(ef))
 
 # Open and resave each file
 # This scrubs the metadata from each image
-for e in ef:
-    img = Image.open(root_dir + e)
-    img.save(root_dir + "clean/cl" + e)
-
-
+for n in nf:
+    img = Image.open(root_dir + n)
+    img.save(root_dir + "clean/cl" + n)

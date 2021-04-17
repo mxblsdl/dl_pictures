@@ -5,7 +5,7 @@ import os
 # dir = os.path.dirname(__file__)
 # os.chdir(dir)
 
-root_dir = "../pi_pics/"
+root_dir = "pi_pics/"
 
 # # find all files
 new_files = os.listdir(root_dir)

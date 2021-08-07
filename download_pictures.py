@@ -1,24 +1,13 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.9.1
-#   kernelspec:
-#     display_name: Python 3.8.5 64-bit
-#     language: python
-#     name: python38564bit85dcbd0d096e4bc59141db86e8b8e649
-# ---
 
-# # Purpose
-#
-# This notebook connects to the remote picamera, finds all of the new pictures
-#  and downloads them to the local machine.
-#
-# Import the libraries that will be used. I use `paramiko` to create the
-#  connection to the pi camera.
+'''
+Purpose
+
+This notebook connects to the remote picamera, finds all of the new pictures
+and downloads them to the local machine.
+
+Import the libraries that will be used. I use `paramiko` to create the
+connection to the pi camera.
+'''
 
 import paramiko
 import os
@@ -26,8 +15,8 @@ import pandas as pd
 
 # read in file containing host information
 # Set the directory
-# dir = os.path.dirname(__file__)
-# os.chdir(dir)
+dir = os.path.dirname(__file__)
+os.chdir(dir)
 
 d = pd.read_csv("server_info.csv")
 

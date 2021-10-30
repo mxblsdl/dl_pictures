@@ -22,5 +22,3 @@ def make_movie(image_folder, video_name, fps):
 
 # For calling interactively
 #make_movie(image_folder="enhanced_pics/pics_20", video_name="eight.avi", fps=5)
-
-myVar = "value"

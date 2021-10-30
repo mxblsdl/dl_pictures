@@ -1,10 +1,6 @@
 from PIL import Image
 import os
 
-# set 
-# dir = os.path.dirname(__file__)
-# os.chdir(dir)
-
 root_dir = "pi_pics/"
 
 # # find all files

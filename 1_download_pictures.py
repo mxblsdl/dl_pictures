@@ -13,11 +13,12 @@ import paramiko
 import os
 import pandas as pd
 
-# read in file containing host information
 # Set the directory
-dir = os.path.dirname(__file__)
-os.chdir(dir)
+# Skipping this step when called from RMarkdown
+# dir = os.path.dirname(os.getcwd())
+# os.chdir(dir)
 
+# read in file containing host information
 d = pd.read_csv("server_info.csv")
 
 d = dict(zip(list(d.iloc[:, 0]), list(d.iloc[:, 1])))

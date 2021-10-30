@@ -1,3 +1,6 @@
+import sys
+sys.path.append("src/")
+
 from movie import make_movie
 import enhance
 import add_sound
@@ -6,19 +9,19 @@ import add_sound
 Take cleaned photos and return a finished video composite with audio added.
 The video will contain annotated month names white annotate=True
 
-When audio is added this script will produce a video with with and without sound
+When audio is added this script will produce a video with and without sound
 '''
 
 # Define path file constants ----------------------------------
 
 # Pictures ------------------------
-input_path = "pi_pics/clean/june to august"
-output_path = "enhanced_pics/june to augist"
+input_path = "pi_pics/clean/june to oct"
+output_path = "enhanced_pics/june to oct"
 
 # Video ---------------------------
 # An mp4 will also be created with audio
 # TODO remove need for extension
-video_name = 'videos/summer.avi'
+video_name = 'videos/fall.avi'
 
 # Audio ----------------------------
 audio_file = "sound/inspo.mp3"

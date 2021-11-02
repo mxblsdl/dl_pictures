@@ -5,14 +5,17 @@ import calendar
 from PIL import Image, ImageDraw, ImageFont
 
 '''
-One time annotate of enhanced pics
+One time annotate of enhanced pics. This functionality has been built into the enhance.py script.
+Preserving this for reference.
 '''
 
 input_path = "enhanced_pics/to june"
 
+# find all pictures in the directory
 pictures = [os.path.join(input_path, p) for p in os.listdir(input_path)]
 pictures.sort()
 
+# Loop over every picture and add the month name
 for i in range(len(pictures)):
 
     # open image

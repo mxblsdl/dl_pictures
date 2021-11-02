@@ -26,6 +26,10 @@ video_name = 'videos/fall.avi'
 # Audio ----------------------------
 audio_file = "sound/inspo.mp3"
 
+# Create movie ----------------------------------------------
+
+# Run picture enhancements
+# Can set annotations for the pictures
 enhance.find_files_enhance(input_path = input_path, output_path = output_path, annotate=True)
 
 # # Stich together movie of enhanced pictures

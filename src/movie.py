@@ -19,6 +19,3 @@ def make_movie(image_folder, video_name, fps):
 
     cv2.destroyAllWindows()
     video.release()
-
-# For calling interactively
-#make_movie(image_folder="enhanced_pics/pics_20", video_name="eight.avi", fps=5)

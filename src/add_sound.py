@@ -15,6 +15,3 @@ def add_audio(video, audio, fps):
     output = video.replace(".avi", ".mp4")
 
     final_clip.write_videofile(output,fps=fps, audio_codec="aac")
-
-
-# add_audio(video = "videos/june.avi", audio="sound/inspo.mp3", fps=3)

@@ -39,3 +39,9 @@ After images have been clean there is a manual process of reviewing the images a
 Once a set of pictures has been finalized they can be stitched together with the `main.py` script. 
 
 Some constants are defined in the script including the audio file to include and whether to annotate the video. This script also runs some image enhancements to increase brightness, saturation, and image 'pop'. 
+
+## Extras
+
+I included a `knit.R` file which runs the download and clean scripts from an R markdown document. This uses the reticulate package to call python from R and create a mini report with information about the download process. While this report is not super useful, it provides an example of how to merge R and Python and the power of automated reports with R markdown.
+
+I have a local cronjob set to run `knit.R` on a computer to ensure photos are backed up from the rpi.

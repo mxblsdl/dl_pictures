@@ -36,8 +36,8 @@ I time the operation so that I can output this value in the report.
 <img id="py" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" style="display:none;">
 ```{r, class.source="Python"}
 tic()
-source_python("download_pictures.py")
-source_python("clean_metadata.py")
+source_python("1_download_pictures.py")
+source_python("2_clean_metadata.py")
 toc(log = T)
 ```
 

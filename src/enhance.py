@@ -3,11 +3,12 @@ from PIL import Image, ImageEnhance, ImageDraw, ImageFont
 import re
 import calendar
 
-###
-'''
+
+"""
 Apply enhancements to the pictures 
-'''
-###
+"""
+
+
 def enhance_images(img, output_path, annotate=False):
     print(output_path)
     im = Image.open(img)
@@ -23,20 +24,29 @@ def enhance_images(img, output_path, annotate=False):
         font = ImageFont.truetype("DejaVuSans.ttf", 175)
 
         # find the month of the photo
-        s = re.sub(".*2021", "", img)
-        month = s[:2]
+        # future proofed until 2030
+        s = re.sub("[^0-9]", "", img)
+        month = s[4:6]
 
         # Convert to name with calendar API
         month = calendar.month_name[int(month)]
-        
+
         # Add text to each picture
-        draw.text((25,25), month, fill=(255,255,255, 100), font=font, stroke_fill=(0,0, 0), stroke_width=5)
+        draw.text(
+            (25, 25),
+            month,
+            fill=(255, 255, 255, 100),
+            font=font,
+            stroke_fill=(0, 0, 0),
+            stroke_width=5,
+        )
 
     en.save(output_path)
 
+
 # Create path list
 def find_files_enhance(input_path, output_path, annotate):
-    
+
     # remove trailing slash if it exists
     output_path = output_path.rstrip("/")
 
@@ -44,8 +54,11 @@ def find_files_enhance(input_path, output_path, annotate):
     pictures = [os.path.join(input_path, p) for p in os.listdir(input_path)]
     pictures.sort()
 
+    # remove any file that does not end with .jpg
+    pictures = [x for x in pictures if x.endswith(".jpg")]
+
     # Create list of names for final files
-    pic_names = [ os.path.join(output_path, pic.replace(input_path + "/cl", "")) for pic in pictures]
+    pic_names = [output_path + pic.replace(input_path, "") for pic in pictures]
 
     # Save images in new dir
     if not os.path.exists(output_path):
@@ -55,4 +68,4 @@ def find_files_enhance(input_path, output_path, annotate):
     for i in range(len(pic_names)):
         # Check that the file exists before overwriting
         if not os.path.isfile(pic_names[i]):
-            enhance_images(img = pictures[i], output_path = pic_names[i], annotate = annotate)
+            enhance_images(img=pictures[i], output_path=pic_names[i], annotate=annotate)

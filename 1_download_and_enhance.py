@@ -1,9 +1,3 @@
-# from src.download_pictures import dl_pictures
-# from src.enhance import find_files_enhance
-
-# from src.add_sound import add_audio
-# from src.movie import make_movie
-
 from src import download_pictures, enhance
 
 """
@@ -30,6 +24,3 @@ download_pictures.dl_pictures(server_info="server_info.csv", output_path="pi_pic
 enhance.find_files_enhance(
     input_path=input_path, output_path=output_path, annotate=True
 )
-
-# #! This is where there should be a split if I want to manually adjust pictures
-

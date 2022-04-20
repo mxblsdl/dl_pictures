@@ -4,3 +4,6 @@ reports/
 videos/
 
 server_info.csv
+.env
+client_secret.json
+token*

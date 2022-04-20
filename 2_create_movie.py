@@ -17,4 +17,6 @@ movie.movie(image_folder=input_path, video_name=f"videos/{video_name}", fps=5)
 
 # add sound
 # more files available here: https://www.chosic.com/free-music/all/
-add_sound.add_sound(video=f"videos/{video_name}", audio=audio_file, fps=5)
+add_sound.add_sound(
+    video=f"videos/{video_name}", audio=audio_file, fps=5, clean_up=True
+)
